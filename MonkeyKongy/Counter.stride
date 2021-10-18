@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Counter" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="protected" type="int" type-java="int" name="score" value="15" value-java="15" enable="true"/>
+        <variable access="private" type="boolean" type-java="boolean" name="first" value="true" value-java="true" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Counter wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="setImage(new GreenfootImage(&quot;Remaining: &quot;+score,30,Color.GREEN,Color.WHITE))" expression-java="setImage( new GreenfootImage(&quot;Remaining: &quot; + score, 30, Color.GREEN, Color.WHITE))" enable="true"/>
+                <if condition="score==0" condition-java="score == 0" enable="true">
+                    <ifStatements>
+                        <variable type="World" type-java="World" name="myWorld" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <variable type="YouWon" type-java="YouWon" name="youwon" value="new YouWon()" value-java=" new YouWon()" enable="true"/>
+                        <variable type="Apple" type-java="Apple" name="apple" value="new Apple()" value-java=" new Apple()" enable="true"/>
+                        <variable type="Banana" type-java="Banana" name="banana" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                        <call expression="getWorld().removeObject(apple)" expression-java="getWorld().removeObject(apple)" enable="true"/>
+                        <call expression="getWorld().removeObject(banana)" expression-java="getWorld().removeObject(banana)" enable="true"/>
+                        <call expression="myWorld.addObject(youwon,myWorld.getWidth()/2,myWorld.getHeight()/2)" expression-java="myWorld.addObject(youwon, myWorld.getWidth() / 2, myWorld.getHeight() / 2)" enable="true"/>
+                        <call expression="Greenfoot.playSound(&quot;win.wav&quot;)" expression-java="Greenfoot.playSound(&quot;win.wav&quot;)" enable="true"/>
+                        <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="(score==7)&amp;&amp;(first==true)" condition-java="(score == 7) &amp;&amp; (first == true)" enable="true">
+                    <ifStatements>
+                        <assign dest="first" dest-java="first" src="false" src-java="false" enable="true"/>
+                        <variable type="World" type-java="World" name="myWorld" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <call expression="myWorld.addObject(new Bomb(),getY(),getX())" expression-java="myWorld.addObject( new Bomb(), getY(), getX())" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="addScore" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="score" dest-java="score" src="score-1" src-java="score - 1" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>

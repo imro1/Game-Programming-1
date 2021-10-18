@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="MyWorld" extends="World" extends-java="World" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">Write a description of class MyWorld here.
+@author (your name) @version (a version number or a date)</javadoc>
+    <imports>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="protected" type="Counter" type-java="Counter" name="counter" value="new Counter()" value-java=" new Counter()" enable="true"/>
+    </fields>
+    <constructors>
+        <comment xml:space="preserve">(World, Actor, GreenfootImage, Greenfoot and MouseInfo)</comment>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Constructor for objects of class MyWorld.</javadoc>
+            <params/>
+            <throws/>
+            <delegate target="super" params="600,400,1" params-java="600, 400, 1"/>
+            <body>
+                <comment xml:space="preserve">Create a new world with 600x400 cells with a cell size of 1x1 pixels.</comment>
+                <foreach type="int" type-java="int" var="i" collection="0..20" collection-java="lang.stride.Utility.makeRange(0, 20)" enable="true">
+                    <variable type="int" type-java="int" name="x" value="Greenfoot.getRandomNumber(getWidth()-1)" value-java="Greenfoot.getRandomNumber(getWidth() - 1)" enable="true"/>
+                    <variable type="int" type-java="int" name="y" value="Greenfoot.getRandomNumber(getHeight()-1)" value-java="Greenfoot.getRandomNumber(getHeight() - 1)" enable="true"/>
+                    <call expression="addObject(new Banana(),x,y)" expression-java="addObject( new Banana(), x, y)" enable="true"/>
+                </foreach>
+                <foreach type="int" type-java="int" var="i" collection="0..20" collection-java="lang.stride.Utility.makeRange(0, 20)" enable="true">
+                    <variable type="int" type-java="int" name="x" value="Greenfoot.getRandomNumber(getWidth()-1)" value-java="Greenfoot.getRandomNumber(getWidth() - 1)" enable="true"/>
+                    <variable type="int" type-java="int" name="y" value="Greenfoot.getRandomNumber(getHeight())-1" value-java="Greenfoot.getRandomNumber(getHeight()) - 1" enable="true"/>
+                    <call expression="addObject(new Apple(),x,y)" expression-java="addObject( new Apple(), x, y)" enable="true"/>
+                </foreach>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="Counter" type-java="Counter" name="getCounter" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <return value="counter" value-java="counter" enable="true"/>
+            </body>
+        </method>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepare the world for the start of the program.
+That is: create the initial objects and add them to the world.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="addObject(counter,100,40)" expression-java="addObject(counter, 100, 40)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana,77,56)" expression-java="addObject(banana, 77, 56)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana2" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana2,498,56)" expression-java="addObject(banana2, 498, 56)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana3" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana3,498,311)" expression-java="addObject(banana3, 498, 311)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana4" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana4,78,316)" expression-java="addObject(banana4, 78, 316)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana5" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana5,275,187)" expression-java="addObject(banana5, 275, 187)" enable="true"/>
+                <variable type="Bomb" type-java="Bomb" name="bomb" value="new Bomb()" value-java=" new Bomb()" enable="true"/>
+                <call expression="addObject(bomb,392,54)" expression-java="addObject(bomb, 392, 54)" enable="true"/>
+                <variable type="monkey" type-java="monkey" name="monkey" value="new monkey()" value-java=" new monkey()" enable="true"/>
+                <call expression="addObject(monkey,223,331)" expression-java="addObject(monkey, 223, 331)" enable="true"/>
+                <variable type="Counter" type-java="Counter" name="counter" value="new Counter()" value-java=" new Counter()" enable="true"/>
+                <call expression="removeObject(banana2)" expression-java="removeObject(banana2)" enable="true"/>
+                <call expression="removeObject(banana3)" expression-java="removeObject(banana3)" enable="true"/>
+                <call expression="removeObject(banana5)" expression-java="removeObject(banana5)" enable="true"/>
+                <call expression="removeObject(banana4)" expression-java="removeObject(banana4)" enable="true"/>
+                <call expression="removeObject(banana)" expression-java="removeObject(banana)" enable="true"/>
+                <call expression="counter.setLocation(50,35)" expression-java="counter.setLocation(50, 35)" enable="true"/>
+                <call expression="counter.setLocation(37,9)" expression-java="counter.setLocation(37, 9)" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>

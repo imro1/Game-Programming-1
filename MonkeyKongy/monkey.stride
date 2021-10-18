@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="monkey" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="GreenfootImage" type-java="GreenfootImage" name="run1r" value="new GreenfootImage(&quot;monk1.png&quot;)" value-java=" new GreenfootImage(&quot;monk1.png&quot;)" enable="true"/>
+        <variable access="private" type="GreenfootImage" type-java="GreenfootImage" name="run2r" value="new GreenfootImage(&quot;monk2.png&quot;)" value-java=" new GreenfootImage(&quot;monk2.png&quot;)" enable="true"/>
+        <variable access="private" type="GreenfootImage" type-java="GreenfootImage" name="run3r" value="new GreenfootImage(&quot;monk3.png&quot;)" value-java=" new GreenfootImage(&quot;monk3.png&quot;)" enable="true"/>
+        <variable access="private" type="GreenfootImage" type-java="GreenfootImage" name="run4r" value="new GreenfootImage(&quot;monk4.png&quot;)" value-java=" new GreenfootImage(&quot;monk4.png&quot;)" enable="true"/>
+        <variable access="private" type="double" type-java="double" name="frame" value="1" value-java="1" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="animatedRight()" expression-java="animatedRight()" enable="true"/>
+                <call expression="walk()" expression-java="walk()" enable="true"/>
+                <call expression="resize()" expression-java="resize()" enable="true"/>
+                <call expression="bananaTouch()" expression-java="bananaTouch()" enable="true"/>
+                <call expression="bombTouch()" expression-java="bombTouch()" enable="true"/>
+                <call expression="score()" expression-java="score()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="walk" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Greenfoot.isKeyDown(&quot;up&quot;)" condition-java="Greenfoot.isKeyDown(&quot;up&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="move(8)" expression-java="move(8)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;left&quot;)" condition-java="Greenfoot.isKeyDown(&quot;left&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="turn(-5)" expression-java="turn(-5)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;right&quot;)" condition-java="Greenfoot.isKeyDown(&quot;right&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="turn(5)" expression-java="turn(5)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;down&quot;)" condition-java="Greenfoot.isKeyDown(&quot;down&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="move(-5)" expression-java="move(-5)" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="animatedRight" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="frame==0" condition-java="frame == 0" enable="true">
+                    <ifStatements>
+                        <call expression="setImage(run1r)" expression-java="setImage(run1r)" enable="true"/>
+                    </ifStatements>
+                    <elseIf condition="frame==2" condition-java="frame == 2">
+                        <call expression="setImage(run2r)" expression-java="setImage(run2r)" enable="true"/>
+                    </elseIf>
+                    <elseIf condition="frame==3" condition-java="frame == 3">
+                        <call expression="setImage(run3r)" expression-java="setImage(run3r)" enable="true"/>
+                    </elseIf>
+                    <elseIf condition="frame==4" condition-java="frame == 4">
+                        <call expression="setImage(run4r)" expression-java="setImage(run4r)" enable="true"/>
+                        <assign dest="frame" dest-java="frame" src="-10" src-java="-10" enable="true"/>
+                    </elseIf>
+                </if>
+                <assign dest="frame" dest-java="frame" src="frame+1" src-java="frame + 1" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="resize" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="image" value="getImage()" value-java="getImage()" enable="true"/>
+                <call expression="image.scale(50,70)" expression-java="image.scale(50, 70)" enable="true"/>
+                <call expression="setImage(image)" expression-java="setImage(image)" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="bananaTouch" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="isTouching(Banana.class)" condition-java="isTouching(Banana.class)" enable="true">
+                    <ifStatements>
+                        <call expression="Greenfoot.playSound(&quot;eating.wav&quot;)" expression-java="Greenfoot.playSound(&quot;eating.wav&quot;)" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="bombTouch" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="isTouching(Bomb.class)" condition-java="isTouching(Bomb.class)" enable="true">
+                    <ifStatements>
+                        <variable type="World" type-java="World" name="myWorld" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <variable type="GameOver" type-java="GameOver" name="gameover" value="new GameOver()" value-java=" new GameOver()" enable="true"/>
+                        <call expression="myWorld.addObject(gameover,myWorld.getWidth()/2,myWorld.getHeight()/2)" expression-java="myWorld.addObject(gameover, myWorld.getWidth() / 2, myWorld.getHeight() / 2)" enable="true"/>
+                        <call expression="Greenfoot.playSound(&quot;BOOM.mp3&quot;)" expression-java="Greenfoot.playSound(&quot;BOOM.mp3&quot;)" enable="true"/>
+                        <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="score" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="Actor" type-java="Actor" name="Banana" value="getOneIntersectingObject(Banana.class)" value-java="getOneIntersectingObject(Banana.class)" enable="true"/>
+                <if condition="Banana!=null" condition-java="Banana != null" enable="true">
+                    <ifStatements>
+                        <variable type="World" type-java="World" name="myWorld" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <call expression="myWorld.removeObject(Banana)" expression-java="myWorld.removeObject(Banana)" enable="true"/>
+                        <variable type="MyWorld" type-java="MyWorld" name="myworld" value="(MyWorld)myWorld" value-java="(MyWorld)myWorld" enable="true"/>
+                        <variable type="Counter" type-java="Counter" name="counter" value="myworld.getCounter()" value-java="myworld.getCounter()" enable="true"/>
+                        <call expression="counter.addScore()" expression-java="counter.addScore()" enable="true"/>
+                    </ifStatements>
+                </if>
+                <variable type="Actor" type-java="Actor" name="Apple" value="getOneIntersectingObject(Apple.class)" value-java="getOneIntersectingObject(Apple.class)" enable="true"/>
+                <if condition="Apple!=null" condition-java="Apple != null" enable="true">
+                    <ifStatements>
+                        <variable type="World" type-java="World" name="myWorld" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <call expression="myWorld.removeObject(Apple)" expression-java="myWorld.removeObject(Apple)" enable="true"/>
+                        <variable type="MyWorld" type-java="MyWorld" name="myworld" value="(MyWorld)myWorld" value-java="(MyWorld)myWorld" enable="true"/>
+                        <variable type="Counter" type-java="Counter" name="counter" value="myworld.getCounter()" value-java="myworld.getCounter()" enable="true"/>
+                        <call expression="counter.addScore()" expression-java="counter.addScore()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

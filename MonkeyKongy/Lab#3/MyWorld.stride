@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="MyWorld" extends="World" extends-java="World" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">Write a description of class MyWorld here.
+@author (your name) @version (a version number or a date)</javadoc>
+    <imports>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields/>
+    <constructors>
+        <comment xml:space="preserve">(World, Actor, GreenfootImage, Greenfoot and MouseInfo)</comment>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Constructor for objects of class MyWorld.</javadoc>
+            <params/>
+            <throws/>
+            <delegate target="super" params="600,400,1" params-java="600, 400, 1"/>
+            <body>
+                <comment xml:space="preserve">Create a new world with 600x400 cells with a cell size of 1x1 pixels.</comment>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepare the world for the start of the program.
+That is: create the initial objects and add them to the world.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="Banana" type-java="Banana" name="banana" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana,77,56)" expression-java="addObject(banana, 77, 56)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana2" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana2,498,56)" expression-java="addObject(banana2, 498, 56)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana3" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana3,498,311)" expression-java="addObject(banana3, 498, 311)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana4" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana4,78,316)" expression-java="addObject(banana4, 78, 316)" enable="true"/>
+                <variable type="Banana" type-java="Banana" name="banana5" value="new Banana()" value-java=" new Banana()" enable="true"/>
+                <call expression="addObject(banana5,275,187)" expression-java="addObject(banana5, 275, 187)" enable="true"/>
+                <variable type="Hamburger" type-java="Hamburger" name="hamburger" value="new Hamburger()" value-java=" new Hamburger()" enable="true"/>
+                <call expression="addObject(hamburger,93,190)" expression-java="addObject(hamburger, 93, 190)" enable="true"/>
+                <variable type="Hamburger" type-java="Hamburger" name="hamburger2" value="new Hamburger()" value-java=" new Hamburger()" enable="true"/>
+                <call expression="addObject(hamburger2,279,66)" expression-java="addObject(hamburger2, 279, 66)" enable="true"/>
+                <variable type="Hamburger" type-java="Hamburger" name="hamburger3" value="new Hamburger()" value-java=" new Hamburger()" enable="true"/>
+                <call expression="addObject(hamburger3,486,188)" expression-java="addObject(hamburger3, 486, 188)" enable="true"/>
+                <variable type="Baby" type-java="Baby" name="baby" value="new Baby()" value-java=" new Baby()" enable="true"/>
+                <call expression="addObject(baby,286,323)" expression-java="addObject(baby, 286, 323)" enable="true"/>
+                <variable type="Bomb" type-java="Bomb" name="bomb" value="new Bomb()" value-java=" new Bomb()" enable="true"/>
+                <call expression="addObject(bomb,392,54)" expression-java="addObject(bomb, 392, 54)" enable="true"/>
+                <variable type="Bomb" type-java="Bomb" name="bomb2" value="new Bomb()" value-java=" new Bomb()" enable="true"/>
+                <call expression="addObject(bomb2,149,49)" expression-java="addObject(bomb2, 149, 49)" enable="true"/>
+                <variable type="Bomb" type-java="Bomb" name="bomb3" value="new Bomb()" value-java=" new Bomb()" enable="true"/>
+                <call expression="addObject(bomb3,207,171)" expression-java="addObject(bomb3, 207, 171)" enable="true"/>
+                <call expression="baby.setLocation(158,357)" expression-java="baby.setLocation(158, 357)" enable="true"/>
+                <call expression="baby.setLocation(153,356)" expression-java="baby.setLocation(153, 356)" enable="true"/>
+                <variable type="Hamburger" type-java="Hamburger" name="hamburger4" value="new Hamburger()" value-java=" new Hamburger()" enable="true"/>
+                <call expression="addObject(hamburger4,281,316)" expression-java="addObject(hamburger4, 281, 316)" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>
